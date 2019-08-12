@@ -1,0 +1,24 @@
+{
+  "name": "@paywithresolve/resolve-node",
+  "version": "1.0.0",
+  "description": "Resolve API wrapper for node.js",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paywithresolve/resolve-node.git"
+  },
+  "contributors": [
+    {
+      "name": "Sevastsyan Zadarozhny",
+      "email": "szadarozhny@insoftgroup.com"
+    }
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paywithresolve/resolve-node/issues"
+  },
+  "homepage": "https://github.com/paywithresolve/resolve-node#readme"
+}
