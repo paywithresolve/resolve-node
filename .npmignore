@@ -1,1 +1,6 @@
 test
+
+.npmrc
+.prettierignore
+.prettierrc
+.editorconfig
