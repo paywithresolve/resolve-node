@@ -4,6 +4,7 @@
   "description": "Resolve API wrapper for node.js",
   "main": "lib/index.js",
   "scripts": {
+    "prettier": "prettier --write \"**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,5 +21,14 @@
   "bugs": {
     "url": "https://github.com/paywithresolve/resolve-node/issues"
   },
-  "homepage": "https://github.com/paywithresolve/resolve-node#readme"
+  "homepage": "https://github.com/paywithresolve/resolve-node#readme",
+  "engines": {
+    "node": ">= 8.0.0"
+  },
+  "dependencies": {
+    "cross-fetch": "^3.0.4"
+  },
+  "devDependencies": {
+    "prettier": "^1.18.2"
+  }
 }
