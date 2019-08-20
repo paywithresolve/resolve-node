@@ -1,0 +1,14 @@
+{
+  "setupFilesAfterEnv": [
+    "<rootDir>/test/setup.js"
+  ],
+  "testMatch": [
+    "<rootDir>/test/suites/**/?(*.)(test).js"
+  ],
+  "testEnvironment": "node",
+  "moduleFileExtensions": [
+    "js",
+    "node",
+    "mjs"
+  ]
+}
