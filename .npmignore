@@ -2,6 +2,8 @@
 
 test
 
+jest.config.json
+
 .npmrc
 .prettierignore
 .prettierrc
