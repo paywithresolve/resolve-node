@@ -2,7 +2,7 @@
   "name": "@paywithresolve/resolve-node",
   "version": "1.0.0",
   "description": "Resolve API wrapper for node.js",
-  "main": "lib/index.js",
+  "main": "index.js",
   "scripts": {
     "prettier": "prettier --write \"**/*.js\"",
     "test": "jest --config=jest.config.json"
