@@ -17,7 +17,7 @@
       "email": "szadarozhny@insoftgroup.com"
     }
   ],
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/paywithresolve/resolve-node/issues"
   },
