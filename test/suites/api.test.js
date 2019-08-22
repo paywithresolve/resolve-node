@@ -24,6 +24,15 @@ describe('API service', () => {
     });
   });
 
+  describe('setApiVersion', () => {
+    it('should set API version header', () => {
+      const version = '2019-07-01';
+      API.setApiVersion(version);
+
+      expect(API._headers['RESOLVE-API-VERSION']).toBe(version);
+    });
+  });
+
   describe('_getBasicAuthHeader', () => {
     it('should generate correct Authorization: Basic header', () => {
       const header = API._getBasicAuthHeader(API._credentials);
