@@ -1,7 +1,7 @@
 const fetch = require('cross-fetch');
 const applications = require('../../lib/api/applications');
 
-const Api = require('../../lib/services/api');
+const API = require('../../lib/services/api');
 
 describe('Applications API', () => {
   const body = { business_address: 'xyz' };
@@ -15,7 +15,7 @@ describe('Applications API', () => {
     it('should call fetch with appropriate params', async () => {
       const response = applications.create(body);
 
-      expect(fetch).toHaveBeenCalledWith(`${Api._apiUrl}/applications?`, {
+      expect(fetch).toHaveBeenCalledWith(`${API._apiUrl}/applications?`, {
         method: 'POST',
         body: JSON.stringify(body),
         headers: expect.any(Object),
@@ -27,7 +27,7 @@ describe('Applications API', () => {
     it('should call fetch with appropriate params', async () => {
       const response = applications.update(appId, body);
 
-      expect(fetch).toHaveBeenCalledWith(`${Api._apiUrl}/applications/${appId}?`, {
+      expect(fetch).toHaveBeenCalledWith(`${API._apiUrl}/applications/${appId}?`, {
         method: 'PUT',
         body: JSON.stringify(body),
         headers: expect.any(Object),
@@ -39,7 +39,7 @@ describe('Applications API', () => {
     it('should call fetch with appropriate params', async () => {
       const response = applications.submit(appId);
 
-      expect(fetch).toHaveBeenCalledWith(`${Api._apiUrl}/applications/${appId}/submit?`, {
+      expect(fetch).toHaveBeenCalledWith(`${API._apiUrl}/applications/${appId}/submit?`, {
         method: 'POST',
         body: JSON.stringify({}),
         headers: expect.any(Object),
@@ -51,7 +51,7 @@ describe('Applications API', () => {
     it('should call fetch with appropriate params', async () => {
       const response = applications.list({ page: 1 });
 
-      expect(fetch).toHaveBeenCalledWith(`${Api._apiUrl}/applications?page=1`, {
+      expect(fetch).toHaveBeenCalledWith(`${API._apiUrl}/applications?page=1`, {
         method: 'GET',
         headers: expect.any(Object),
       });
@@ -62,7 +62,7 @@ describe('Applications API', () => {
     it('should call fetch with appropriate params', async () => {
       const response = applications.retrieve(appId);
 
-      expect(fetch).toHaveBeenCalledWith(`${Api._apiUrl}/applications/${appId}?`, {
+      expect(fetch).toHaveBeenCalledWith(`${API._apiUrl}/applications/${appId}?`, {
         method: 'GET',
         headers: expect.any(Object),
       });

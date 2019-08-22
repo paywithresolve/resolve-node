@@ -1,7 +1,7 @@
 const fetch = require('cross-fetch');
 const reimbursements = require('../../lib/api/reimbursements');
 
-const Api = require('../../lib/services/api');
+const API = require('../../lib/services/api');
 
 describe('reimbursements API', () => {
   const reimbursementId = 'sdfgsdg';
@@ -14,7 +14,7 @@ describe('reimbursements API', () => {
     it('should call fetch with appropriate params', async () => {
       const response = reimbursements.list({ page: 2 });
 
-      expect(fetch).toHaveBeenCalledWith(`${Api._apiUrl}/reimbursements?page=2`, {
+      expect(fetch).toHaveBeenCalledWith(`${API._apiUrl}/reimbursements?page=2`, {
         method: 'GET',
         headers: expect.any(Object),
       });
@@ -25,7 +25,7 @@ describe('reimbursements API', () => {
     it('should call fetch with appropriate params', async () => {
       const response = reimbursements.retrieve(reimbursementId);
 
-      expect(fetch).toHaveBeenCalledWith(`${Api._apiUrl}/reimbursements/${reimbursementId}?`, {
+      expect(fetch).toHaveBeenCalledWith(`${API._apiUrl}/reimbursements/${reimbursementId}?`, {
         method: 'GET',
         headers: expect.any(Object),
       });

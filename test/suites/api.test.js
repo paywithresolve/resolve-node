@@ -1,32 +1,32 @@
 const fetch = require('cross-fetch');
 
-const Api = require('../../lib/services/api');
+const API = require('../../lib/services/api');
 const { errorTypes } = require('../../lib/util/error');
 
-describe('Api service', () => {
+describe('API service', () => {
 
   const HOST = 'http://localhost:5000';
 
   describe('setCredentials', () => {
     it('should set credentials', () => {
-      Api.setCredentials('John Doe', 'qwerty');
+      API.setCredentials('John Doe', 'qwerty');
 
-      expect(Api._credentials.user).toBe('John Doe');
-      expect(Api._credentials.password).toBe('qwerty');
+      expect(API._credentials.user).toBe('John Doe');
+      expect(API._credentials.password).toBe('qwerty');
     });
   });
 
   describe('setApiUrl', () => {
     it('should set API url', () => {
-      Api.setApiUrl(HOST);
+      API.setApiUrl(HOST);
 
-      expect(Api._apiUrl).toBe(HOST);
+      expect(API._apiUrl).toBe(HOST);
     });
   });
 
   describe('_getBasicAuthHeader', () => {
     it('should generate correct Authorization: Basic header', () => {
-      const header = Api._getBasicAuthHeader(Api._credentials);
+      const header = API._getBasicAuthHeader(API._credentials);
 
       expect(header).toBe('Basic Sm9obiBEb2U6cXdlcnR5');
     });
@@ -36,7 +36,7 @@ describe('Api service', () => {
     it('should compose correct URL from host and path', () => {
       const path = 'checkout/data';
 
-      const url = Api._buildUri(path);
+      const url = API._buildUri(path);
 
       expect(url).toBe(`${HOST}/${path}?`);
     });
@@ -45,7 +45,7 @@ describe('Api service', () => {
       const path = 'checkout/data';
       const options = { page: 1, limit: 1, search: 'swedf' };
 
-      const url = Api._buildUri(path, options);
+      const url = API._buildUri(path, options);
 
       expect(url).toBe(`${HOST}/${path}?page=1&limit=1&search=swedf`);
     });
@@ -54,7 +54,7 @@ describe('Api service', () => {
       const path = '//checkout//data';
       const options = { page: 1, limit: 1, search: 'swedf' };
 
-      const url = Api._buildUri(path, options);
+      const url = API._buildUri(path, options);
 
       expect(url).toBe(`${HOST}/checkout/data?page=1&limit=1&search=swedf`);
     });
@@ -73,7 +73,7 @@ describe('Api service', () => {
     };
 
     it('should call fetch with passed options', async () => {
-      const response = await Api._requestPromise(options);
+      const response = await API._requestPromise(options);
 
       expect(fetch).toHaveBeenCalled();
       expect(fetch).toHaveBeenCalledWith(
@@ -88,7 +88,7 @@ describe('Api service', () => {
 
     it('should return JSON response', async () => {
 
-      const response = await Api._requestPromise(options);
+      const response = await API._requestPromise(options);
 
       expect(response).toMatchObject({ data: [1, 2, 3], success: true });
     });
@@ -106,7 +106,7 @@ describe('Api service', () => {
         return Promise.reject(error);
       });
 
-      const response = await Api._requestPromise(options);
+      const response = await API._requestPromise(options);
 
       expect(response).toMatchObject({
         code: error.code,
@@ -132,7 +132,7 @@ describe('Api service', () => {
 
       fetch.mockImplementationOnce(() => Promise.resolve(new Response(JSON.stringify(error))));
 
-      const response = await Api._requestPromise(options);
+      const response = await API._requestPromise(options);
 
       expect(response).toMatchObject({
         ...error.error,
@@ -140,7 +140,7 @@ describe('Api service', () => {
     });
   });
 
-  describe('Api methods', () => {
+  describe('API methods', () => {
     const url = '/applications/data';
     const options = { page: 1, limit: 1 };
     const data = { a: 1 };
@@ -151,7 +151,7 @@ describe('Api service', () => {
 
     describe('GET', () => {
       it('should call fetch with appropriate params', async () => {
-        const response = await Api.get(url, options);
+        const response = await API.get(url, options);
 
         expect(fetch).toHaveBeenCalledWith(
           `${HOST}${url}?page=1&limit=1`,
@@ -165,7 +165,7 @@ describe('Api service', () => {
 
     describe('POST', () => {
       it('should call fetch with appropriate params', async () => {
-        const response = await Api.post(url, data);
+        const response = await API.post(url, data);
 
         expect(fetch).toHaveBeenCalledWith(
           `${HOST}${url}?`,
@@ -180,7 +180,7 @@ describe('Api service', () => {
 
     describe('PUT', () => {
       it('should call fetch with appropriate params', async () => {
-        const response = await Api.put(url, data);
+        const response = await API.put(url, data);
 
         expect(fetch).toHaveBeenCalledWith(
           `${HOST}${url}?`,
@@ -195,7 +195,7 @@ describe('Api service', () => {
 
     describe('DELETE', () => {
       it('should call fetch with appropriate params', async () => {
-        const response = await Api.delete(url, data);
+        const response = await API.delete(url, data);
 
         expect(fetch).toHaveBeenCalledWith(
           `${HOST}${url}?`,

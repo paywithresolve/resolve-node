@@ -1,7 +1,7 @@
 const fetch = require('cross-fetch');
 const invoices = require('../../lib/api/invoices');
 
-const Api = require('../../lib/services/api');
+const API = require('../../lib/services/api');
 
 describe('Invoices API', () => {
   const invoiceId = 'sdfgsdg';
@@ -14,7 +14,7 @@ describe('Invoices API', () => {
     it('should call fetch with appropriate params', async () => {
       const response = invoices.list({ page: 2 });
 
-      expect(fetch).toHaveBeenCalledWith(`${Api._apiUrl}/invoices?page=2`, {
+      expect(fetch).toHaveBeenCalledWith(`${API._apiUrl}/invoices?page=2`, {
         method: 'GET',
         headers: expect.any(Object),
       });
@@ -25,7 +25,7 @@ describe('Invoices API', () => {
     it('should call fetch with appropriate params', async () => {
       const response = invoices.retrieve(invoiceId);
 
-      expect(fetch).toHaveBeenCalledWith(`${Api._apiUrl}/invoices/${invoiceId}?`, {
+      expect(fetch).toHaveBeenCalledWith(`${API._apiUrl}/invoices/${invoiceId}?`, {
         method: 'GET',
         headers: expect.any(Object),
       });
