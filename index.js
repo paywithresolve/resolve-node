@@ -11,22 +11,22 @@ const Payouts = require('./lib/api/payouts');
 const Refunds = require('./lib/api/refunds');
 const Reimbursements = require('./lib/api/reimbursements');
 
-class ResolveNode {
+class Resolve {
   static init(id, secretKey) {
     Api.setCredentials(id, secretKey);
     return this;
   }
 }
 
-ResolveNode.applications = Applications;
-ResolveNode.charges = Charges;
-ResolveNode.customers = Customers;
-ResolveNode.invoices = Invoices;
-ResolveNode.events = Events;
-ResolveNode.orders = Orders;
-ResolveNode.payments = Payments;
-ResolveNode.payouts = Payouts;
-ResolveNode.refunds = Refunds;
-ResolveNode.reimbursements = Reimbursements;
+Resolve.applications = Applications;
+Resolve.charges = Charges;
+Resolve.customers = Customers;
+Resolve.invoices = Invoices;
+Resolve.events = Events;
+Resolve.orders = Orders;
+Resolve.payments = Payments;
+Resolve.payouts = Payouts;
+Resolve.refunds = Refunds;
+Resolve.reimbursements = Reimbursements;
 
-module.exports = ResolveNode;
+module.exports = Resolve;
