@@ -1,6 +1,13 @@
+.git
+
 test
+.idea
+coverage
+
+jest.config.json
 
 .npmrc
 .prettierignore
 .prettierrc
 .editorconfig
+.gitignore

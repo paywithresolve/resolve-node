@@ -2,10 +2,10 @@
   "name": "@paywithresolve/resolve-node",
   "version": "1.0.0",
   "description": "Resolve API wrapper for node.js",
-  "main": "lib/index.js",
+  "main": "index.js",
   "scripts": {
     "prettier": "prettier --write \"**/*.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --config=jest.config.json"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
       "email": "szadarozhny@insoftgroup.com"
     }
   ],
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/paywithresolve/resolve-node/issues"
   },
@@ -26,9 +26,12 @@
     "node": ">= 8.0.0"
   },
   "dependencies": {
-    "cross-fetch": "^3.0.4"
+    "base-64": "^0.1.0",
+    "cross-fetch": "^3.0.4",
+    "qs": "^6.7.0"
   },
   "devDependencies": {
+    "jest": "^24.8.0",
     "prettier": "^1.18.2"
   }
 }
